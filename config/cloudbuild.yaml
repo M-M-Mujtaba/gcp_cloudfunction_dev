@@ -7,5 +7,5 @@ steps:
   dir: 'src'
 - name: 'gcr.io/cloud-builders/gcloud'
   # Specify below [DISPLAYED NAME OF THE CLOUDFUNCTION], [BUCKET NAME], [NAME OF THE FUNCTION in main.py]
-  args: ['functions', 'deploy', [DISPLAYED NAME OF THE CLOUDFUNCTION], '--trigger-resource=[BUCKET NAME]', '--trigger-event=google.storage.object.finalize', '--runtime', 'python38', '--entry-point', [NAME OF THE FUNCTION in main.py], '--region=europe-west3']
+  args: ['functions', 'deploy', [test_function], '--trigger-resource=[dev-test-mmm]', '--trigger-event=google.storage.object.finalize', '--runtime', 'python38', '--entry-point', [yourEntrypoint], '--region=europe-west3']
   dir: 'src'

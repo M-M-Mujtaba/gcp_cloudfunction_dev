@@ -10,11 +10,15 @@ def yourEntrypoint(event, context):  # Change the name of the function
     :return: None
     """
     # Client-Initialization
-    storageClient = storage.Client()
-    bigqueryClient = bigquery.Client()
+    storageClient = storage.Client(event["project"])
+    bigqueryClient = bigquery.Client(event["project"])
 
     # Rename for Readability
     file = event
 
     # Path to file in Bucket
     uriFilePath = "gs://{}/{}".format(file["bucket"], file["name"])
+    print(file["bucket"])
+    bucket = storageClient.get_bucket(file["bucket"])
+    blob = bucket.get_blob(file["name"])
+    return blob.download_as_bytes()
