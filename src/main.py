@@ -10,8 +10,8 @@ def yourEntrypoint(event, context):  # Change the name of the function
     :return: None
     """
     # Client-Initialization
-    storageClient = storage.Client(event["project"])
-    bigqueryClient = bigquery.Client(event["project"])
+    storageClient = storage.Client()
+    bigqueryClient = bigquery.Client()
 
     # Rename for Readability
     file = event
